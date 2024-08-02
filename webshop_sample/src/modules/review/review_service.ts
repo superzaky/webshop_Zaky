@@ -1,10 +1,8 @@
 import { MedusaService } from "@medusajs/utils"
 import review from "./models/review";
-
-class ReviewService extends MedusaService({
+class ReviewModuleService extends MedusaService({
   review
 }) {
-
 }
 
-export default ReviewService
+export default ReviewModuleService

@@ -1,13 +1,13 @@
 import { MedusaRequest, MedusaResponse } from "@medusajs/medusa"
-import ReviewService from "../../../modules/review/review_service"
-import { HELLO_MODULE } from "../../../modules/hello"
+import ReviewModuleService from "../../../modules/review/review_service"
+import { REVIEW_MODULE } from "../../../modules/review"
 
 export async function POST(
   req: MedusaRequest,
   res: MedusaResponse
 ): Promise<void> {
-  const reviewModuleService: ReviewService = req.scope.resolve(
-    HELLO_MODULE
+  const reviewModuleService: ReviewModuleService = req.scope.resolve(
+    REVIEW_MODULE
   )
 
   res.json({

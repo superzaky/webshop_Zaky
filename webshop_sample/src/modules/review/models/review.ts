@@ -2,7 +2,7 @@ import { model } from "@medusajs/utils";
 
 const Review = model.define("review", {
   id: model.id().primaryKey(),
-  product_id: model.id(),
+  product_id: model.text(),
   title: model.text(),
   description: model.text(),
   confirmed: model.boolean(),
