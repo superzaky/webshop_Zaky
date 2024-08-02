@@ -28,6 +28,12 @@ After that, go to the webshop_sample directory and type the following command in
 
 NOTE: The above mentioned command only works in the command line and does NOT work in Powershell nor in the terminal in Windows for some reason.
 
+After that, you need to create a user in the database so that you can login to the dashboard, so go to the webshop_sample directory and type in the following command to create one:
+
+`npx medusa user --email <YOUR EMAIL ADDRESS HERE> --password <YOUR PASSWORD HERE>`
+
+Note, you can just type in any email address and password, so it does not have to be a real one.
+
 Finally, in order to run the webshop_sample, go to the webshop_sample directory and type the following command in your terminal:
 
 `npm run dev`

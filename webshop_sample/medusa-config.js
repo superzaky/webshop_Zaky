@@ -11,6 +11,12 @@ module.exports = defineConfig({
 
     },
 
+    reviewModuleService: {
+
+      resolve: "./modules/review",
+
+    },
+
   },
   projectConfig: {
     databaseUrl: process.env.DATABASE_URL,
