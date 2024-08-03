@@ -9,8 +9,8 @@ export async function POST(
   const reviewModuleService: ReviewModuleService = req.scope.resolve(
     REVIEW_MODULE
   )
-
+  const post = await reviewModuleService.createReviews(req.body)
   res.json({
-    message: reviewModuleService.createReviews(req.body)
+    message: post
   })
 }
