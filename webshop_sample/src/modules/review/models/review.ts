@@ -9,8 +9,7 @@ const Review = model.define("review", {
   email: model.text(),
   verified_customer: model.boolean(),
   rating: model.number(),
-  locale: model.text(),
-  date_added: model.dateTime()
+  locale: model.text()
 });
 
 export default Review;

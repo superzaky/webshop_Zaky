@@ -11,6 +11,6 @@ export async function POST(
   )
 
   res.json({
-    message: reviewModuleService.createReviews(),
+    message: reviewModuleService.createReviews(req.body)
   })
 }
