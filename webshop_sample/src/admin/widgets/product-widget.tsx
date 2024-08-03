@@ -1,19 +1,12 @@
 import { defineWidgetConfig } from "@medusajs/admin-shared"
-import { Container, Heading } from "@medusajs/ui"
-import { 
-  DetailWidgetProps, 
-  AdminProduct,
-} from "@medusajs/types"
+import { Container } from "@medusajs/ui"
+import { Link } from "react-router-dom"
 
 // The widget
-const ProductWidget = ({ 
-  data,
-}: DetailWidgetProps<AdminProduct>) => {
+const ProductWidget = () => {
   return (
     <Container>
-      <Heading level="h2">
-        Product Widget {data.title}
-      </Heading>
+      <Link to={"/orders"}>View Orders</Link>
     </Container>
   )
 }

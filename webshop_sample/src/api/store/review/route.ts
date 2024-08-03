@@ -9,8 +9,23 @@ export async function POST(
   const reviewModuleService: ReviewModuleService = req.scope.resolve(
     REVIEW_MODULE
   )
-  const post = await reviewModuleService.createReviews(req.body)
+  const review = await reviewModuleService.createReviews(req.body)
   res.json({
-    message: post
+    message: review
   })
 }
+
+
+export async function GET(
+  req: MedusaRequest,
+  res: MedusaResponse
+): Promise<void> {
+  const reviewModuleService: ReviewModuleService = req.scope.resolve(
+    REVIEW_MODULE
+  )
+  const reviews = await reviewModuleService.listReviews(req.body)
+  res.json({
+    message: reviews
+  })
+}
+
