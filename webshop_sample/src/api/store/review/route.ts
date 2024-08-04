@@ -8,13 +8,20 @@ export async function POST(
   req: MedusaRequest,
   res: MedusaResponse
 ): Promise<void> {
-  const reviewModuleService: ReviewModuleService = req.scope.resolve(
-    REVIEW_MODULE
-  )
-  const review = await reviewModuleService.createReviews(req.body)
-  res.json({
-    message: review
-  })
+  try {
+    const reviewModuleService: ReviewModuleService = req.scope.resolve(
+      REVIEW_MODULE
+    );
+    const review = await reviewModuleService.createReviews(req.body);
+    res.json({
+      message: review,
+    });
+  } catch (error) {
+    console.error("Error creating review:", error);
+    res.status(500).json({
+      error: "An error occurred while creating the review.",
+    });
+  }
 }
 
 export async function GET(
