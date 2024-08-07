@@ -34,7 +34,7 @@ export async function GET(
 
   let page = 0;
   if (req.query['offset'] !== undefined || req.query['offset'] !== '0') {
-      page = Number(req.query['offset']) - 1
+      page = Number(req.query['offset']) 
   }
 
   // per page 
