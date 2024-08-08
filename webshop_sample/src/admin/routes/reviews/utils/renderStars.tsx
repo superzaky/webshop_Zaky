@@ -1,6 +1,4 @@
-// utils/renderStars.js
 import { StarSolid } from "@medusajs/icons";
-import React from "react";
 
 export const renderStars = (rating) => {
   return (

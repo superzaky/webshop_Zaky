@@ -7,7 +7,6 @@ import { renderStars } from "./utils/renderStars";
 
 const CustomPage = () => {
   const [reviews, setReviews] = useState([]);
-  const [open, setOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const pageLimit = 10;
   const [count, setCount] = useState(0);

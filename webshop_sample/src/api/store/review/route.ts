@@ -11,16 +11,16 @@ export async function POST(
   try {
     const reviewModuleService: ReviewModuleService = req.scope.resolve(
       REVIEW_MODULE
-    );
+    )
     const review = await reviewModuleService.createReviews(req.body);
     res.json({
       message: review,
-    });
+    })
   } catch (error) {
-    console.error("Error creating review:", error);
+    console.error("Error creating review:", error)
     res.status(500).json({
       error: "An error occurred while creating the review.",
-    });
+    })
   }
 }
 
@@ -31,16 +31,16 @@ export async function PUT(
   try {
     const reviewModuleService: ReviewModuleService = req.scope.resolve(
       REVIEW_MODULE
-    );
+    )
     const review = await reviewModuleService.updateReviews(req.body);
     res.json({
       message: review,
-    });
+    })
   } catch (error) {
     console.error("Error updating review:", error);
     res.status(500).json({
       error: "An error occurred while updating the review.",
-    });
+    })
   }
 }
 
@@ -53,13 +53,13 @@ export async function GET(
   )
 
   let page = 0;
-  if (req.query['offset'] !== undefined || req.query['offset'] !== '0') {
-      page = Number(req.query['offset']) 
+  if (req.query['offset'] !== undefined && req.query['offset'] !== '0') {
+    page = Number(req.query['offset'])
   }
 
-  // per page 
+  // per page
   const perPage = Number(req.query['limit'])
-  // per page * page 
+  // per page * page
   const result = perPage * page
 
   const query = remoteQueryObjectFromString({
@@ -71,7 +71,15 @@ export async function GET(
     }
   })
 
-  res.json({
-    my_customs: await remoteQuery(query),
-  })
+  try {
+    const data = await remoteQuery(query);
+    res.json({
+      my_customs: data,
+    })
+  } catch (error) {
+    console.error("Error querying data:", error);
+    res.status(500).json({
+      error: "An error occurred while fetching data.",
+    })
+  }
 }
