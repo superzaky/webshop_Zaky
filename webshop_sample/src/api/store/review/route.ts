@@ -24,6 +24,26 @@ export async function POST(
   }
 }
 
+export async function PUT(
+  req: MedusaRequest,
+  res: MedusaResponse
+): Promise<void> {
+  try {
+    const reviewModuleService: ReviewModuleService = req.scope.resolve(
+      REVIEW_MODULE
+    );
+    const review = await reviewModuleService.updateReviews(req.body);
+    res.json({
+      message: review,
+    });
+  } catch (error) {
+    console.error("Error updating review:", error);
+    res.status(500).json({
+      error: "An error occurred while updating the review.",
+    });
+  }
+}
+
 export async function GET(
   req: MedusaRequest,
   res: MedusaResponse
