@@ -1,24 +1,17 @@
 import { useParams, useLocation } from "react-router-dom"
 import { Container, Heading, Button } from "@medusajs/ui"
-import { ChatBubbleLeftRight, EllipseGreenSolid, EllipseRedSolid, StarSolid } from "@medusajs/icons"
+import { EllipseGreenSolid, EllipseRedSolid, ArrowLongLeft } from "@medusajs/icons"
+import { renderStars } from "../utils/renderStars";
+import { Link } from "react-router-dom"
 
 const CustomPage = () => {
   const { id } = useParams();
   const location = useLocation();
   const { review } = location.state || {}; // Retrieve the review object from the state
 
-  const renderStars = (rating) => {
-    return (
-      <>
-        {[...Array(rating)].map((_, index) => (
-          <StarSolid color="#faf323" key={index} />
-        ))}
-      </>
-    );
-  };
-
   return (
     <>
+    <Link to={`/reviews`}><ArrowLongLeft/> Back to reviews</Link>
     <Button>Button</Button>
     <Container>
       <h1>Review ID: {id}</h1>

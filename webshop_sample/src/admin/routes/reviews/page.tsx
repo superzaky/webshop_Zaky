@@ -1,8 +1,9 @@
 import { defineRouteConfig } from "@medusajs/admin-shared"
-import { ChatBubbleLeftRight, EllipseGreenSolid, EllipseRedSolid, StarSolid } from "@medusajs/icons"
+import { ChatBubbleLeftRight, EllipseGreenSolid, EllipseRedSolid } from "@medusajs/icons"
 import { Container, Table } from "@medusajs/ui"
 import { useEffect, useMemo, useState } from "react"
 import { Link } from "react-router-dom"
+import { renderStars } from "./utils/renderStars";
 
 const CustomPage = () => {
   const [reviews, setReviews] = useState([]);
@@ -67,17 +68,6 @@ const CustomPage = () => {
 
     return `${date.toLocaleDateString('en-GB', dateOptions)}, ${date.toLocaleTimeString('en-GB', timeOptions)}`;
   }
-
-  // Utility function to render stars based on the rating
-  const renderStars = (rating) => {
-    return (
-      <>
-        {[...Array(rating)].map((_, index) => (
-          <StarSolid color="#faf323" key={index} />
-        ))}
-      </>
-    );
-  };
 
   return (
     <Container>
