@@ -60,6 +60,7 @@ const CustomPage = () => {
       <Table>
         <Table.Header>
           <Table.Row>
+            <Table.HeaderCell>Date added</Table.HeaderCell>
             <Table.HeaderCell>Name</Table.HeaderCell>
             <Table.HeaderCell>Action</Table.HeaderCell>
           </Table.Row>
@@ -67,9 +68,10 @@ const CustomPage = () => {
         <Table.Body>
           {reviews.map((review) => (
             <Table.Row key={review.id}>
+              <Table.Cell>{review.created_at}</Table.Cell>
               <Table.Cell>{review.title}</Table.Cell>
               <Table.Cell>
-                <Link to={`/products/${review.id}`}>View Product</Link>
+                <Link to={`/reviews/${review.id}`}>View Review</Link>
               </Table.Cell>
             </Table.Row>
           ))}
